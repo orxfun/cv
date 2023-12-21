@@ -1,13 +1,16 @@
 :root {
+    --bg-color: white;
+    --color: black;
     --theme-color: #004d00;
     --line-height: 1.5rem;
 }
 
 * {
     line-height: var(--line-height);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: justify;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color);
+    background-color: var(--bg-color);
 }
 
 a {
@@ -42,19 +45,45 @@ h1 {
     height: calc(8 * var(--line-height));
 }
 
-.colors {
+.theme-colors {
     display: flex;
     flex-flow: row nowrap;
     justify-content: start;
     column-gap: 0.5rem;
 }
 
-.colors button {
+.theme-colors div {
     padding: 0.2rem 0.5rem;
     width: calc(1.2 * var(--line-height));
-    height: calc(0.7 * var(--line-height));
-    border-radius: 1rem;
-    border: none;
+    height: calc(0.2 * var(--line-height));
+    border-radius: 0.4rem;
+}
+
+.dark-mode {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: end;
+    column-gap: 0.5rem;
+}
+
+.dark-mode div {
+    padding: 0.2rem 0.5rem;
+    width: calc(1.2 * var(--line-height));
+    height: calc(0.0.5 * var(--line-height));
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.dark-mode .sun {
+    background-color: rgb(220, 220, 220);
+    border: calc(0.2 * var(--line-height)) solid black;
+    display: inherit;
+}
+
+.dark-mode .moon {
+    border: calc(0.2 * var(--line-height)) solid rgb(220, 220, 220);
+    background-color: black;
+    display: none;
 }
 
 .profile {
@@ -82,7 +111,8 @@ h2:before {
 
 h2 {
     border-bottom: 1px solid var(--theme-color);
-    padding-bottom: 0.7rem;
+    padding-top: 2rem;
+    padding-bottom: 1.0rem;
     font-size: 1.5rem;
     margin-top: 3rem;
 }

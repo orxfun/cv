@@ -1,15 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
     setMoreLessButtonEvents();
     setThemeColorEvents();
+    setDarkModeEvents();
 });
+
+function setDarkModeEvents() {
+    function getDarkModeDiv(className) {
+        const buttons = document.getElementsByClassName(className);
+        return buttons.length === 0 ? null : buttons[0]
+    }
+    const moon = getDarkModeDiv("moon");
+    const sun = getDarkModeDiv("sun");
+
+    function setModeMoon() {
+        moon.style.display = "inherit";
+        sun.style.display = "none";
+        document.documentElement.style.setProperty('--bg-color', "black");
+        document.documentElement.style.setProperty('--color', "white");
+    }
+    function setModeSun() {
+        moon.style.display = "none";
+        sun.style.display = "inherit";
+        document.documentElement.style.setProperty('--bg-color', "white");
+        document.documentElement.style.setProperty('--color', "black");
+    }
+
+    moon?.addEventListener('click', function (_) { setModeSun() });
+    sun?.addEventListener('click', function (_) { setModeMoon() });
+}
 
 function setThemeColorEvents() {
     function setThemeColor(color) {
         document.documentElement.style.setProperty('--theme-color', color);
     }
 
-    const colors = document.getElementsByClassName("colors");
-    const children = colors.length === 0 ? null : colors[0].children;
+    const colors = document.getElementsByClassName("theme-colors");
+    const children = colors.length === 0 ? [] : colors[0].children;
     for (let i = 0; i < children.length; i++) {
         const node = children[i];
         const color = node.style.backgroundColor;
