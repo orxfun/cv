@@ -1,0 +1,143 @@
+:root {
+    --theme-color: #004d00;
+    --line-height: 1.5rem;
+}
+
+* {
+    line-height: var(--line-height);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+a {
+    text-decoration: none;
+    color: var(--theme-color);
+}
+
+body {
+    counter-reset: h2counter;
+    padding: 3rem 20%;
+}
+
+h1 {
+    counter-reset: h2counter;
+    text-align: center;
+}
+
+.subheader {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.header-card {
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.header-card img {
+    border: 0.1rem solid var(--theme-color);
+    border-radius: 5px;
+    height: calc(8 * var(--line-height));
+}
+
+.colors {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    column-gap: 0.5rem;
+}
+
+.colors button {
+    padding: 0.2rem 0.5rem;
+    width: calc(1.2 * var(--line-height));
+    height: calc(0.7 * var(--line-height));
+    border-radius: 1rem;
+    border: none;
+}
+
+.profile {
+    text-align: center;
+}
+
+.coding::before,
+.paper::before {
+    font-family: 'Courier New', Courier, monospace;
+    padding-right: 0.7rem;
+}
+
+.coding::before {
+    content: '>_';
+}
+
+.paper::before {
+    content: '🗎 ';
+}
+
+h2:before {
+    content: counter(h2counter) ".\0000a0\0000a0";
+    counter-increment: h2counter;
+}
+
+h2 {
+    border-bottom: 1px solid var(--theme-color);
+    padding-bottom: 0.7rem;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.three-columns {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.dated-card {
+    margin-bottom: 2rem;
+}
+
+.dated-card-header {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 3rem;
+    font-weight: bold;
+}
+
+.dated-card-header div:nth-child(2) {
+    font-style: italic;
+    text-align: right;
+}
+
+.position *:nth-child(2)::before {
+    content: ' │ ';
+    color: var(--theme-color);
+}
+
+.dated-card-content {
+    padding-left: 1rem;
+    border-left: 1px solid var(--theme-color);
+}
+
+.more,
+.btnless {
+    display: none;
+}
+
+.btnmore,
+.btnless {
+    color: gray;
+    padding: 0.2rem 1rem;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.publication {
+    display: inline-block;
+    padding-bottom: 1rem;
+}
