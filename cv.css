@@ -95,7 +95,7 @@ h1 {
 }
 
 .coding::before,
-.paper::before {
+.download::before {
     font-family: 'Courier New', Courier, monospace;
     padding-right: 0.7rem;
 }
@@ -104,9 +104,11 @@ h1 {
     content: '>_';
 }
 
-.paper::before {
-    content: '🗎 ';
+.download::before {
+    content: '⮟ ';
 }
+
+
 
 h2:before {
     content: counter(h2counter) ".\0000a0\0000a0";
