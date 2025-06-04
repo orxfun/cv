@@ -225,6 +225,12 @@ h2 {
         font-weight: bold;
     }
 
+
+    .dated-card-content {
+        padding-left: 0.3em;
+        border-left: 1px solid var(--theme-color);
+    }
+
     /* FONT SIZES */
     h1 {
         font-size: 1.5em;
@@ -246,5 +252,10 @@ h2 {
 
     .dated-card-header {
         font-size: 0.825em;
+    }
+
+    /* main layout */
+    body {
+        padding: 1rem 2em;
     }
 }
