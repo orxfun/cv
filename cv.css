@@ -1,7 +1,7 @@
 :root {
     --bg-color: white;
     --color: black;
-    --theme-color: #004d00;
+    --theme-color: #006bb3;
     --line-height: 1.5rem;
 }
 
@@ -47,6 +47,7 @@ h1 {
     border: 0.1rem solid var(--theme-color);
     border-radius: 5px;
     height: calc(8 * var(--line-height));
+    user-select: none;
 }
 
 .theme-colors {
