@@ -17,23 +17,26 @@ function setDarkModeEvents() {
         sun.style.display = "none";
         document.documentElement.style.setProperty('--bg-color', "black");
         document.documentElement.style.setProperty('--color', "white");
+        setThemeColor('#ff3300');
     }
+
     function setModeSun() {
         moon.style.display = "none";
         sun.style.display = "inherit";
         document.documentElement.style.setProperty('--bg-color', "white");
         document.documentElement.style.setProperty('--color', "black");
+        setThemeColor('#006bb3');
     }
 
     moon?.addEventListener('click', function (_) { setModeSun() });
     sun?.addEventListener('click', function (_) { setModeMoon() });
 }
 
-function setThemeColorEvents() {
-    function setThemeColor(color) {
-        document.documentElement.style.setProperty('--theme-color', color);
-    }
+function setThemeColor(color) {
+    document.documentElement.style.setProperty('--theme-color', color);
+}
 
+function setThemeColorEvents() {
     const colors = document.getElementsByClassName("theme-colors");
     const children = colors.length === 0 ? [] : colors[0].children;
     for (let i = 0; i < children.length; i++) {
@@ -54,9 +57,9 @@ function setMoreLessButtonEvents() {
         node.style.display = "none";
     }
 
-    const btnmore = document.getElementsByClassName("btnmore");
-    for (let i = 0; i < btnmore.length; i++) {
-        const dots = btnmore[i];
+    const btnMore = document.getElementsByClassName("btnmore");
+    for (let i = 0; i < btnMore.length; i++) {
+        const dots = btnMore[i];
         dots.addEventListener('click', function (e) {
             for (let j = 0; j < e.target.parentNode.children.length; j++) {
                 const child = e.target.parentNode.children[j];
