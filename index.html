@@ -1,451 +1,615 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uğur Arıkan - CV</title>
-    <link rel="stylesheet" href="cv.css">
-    <script src="cv.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Curriculum vitae of Uğur Arikan, operations research and data science professional with experience in aviation, network design, optimization, and software engineering.">
+    <title>Uğur Arikan | Operations Research &amp; Data Science</title>
+    <style>
+        :root {
+            --ink: #17324d;
+            --muted: #536575;
+            --accent: #007f86;
+            --accent-dark: #00666c;
+            --wash: #edf5f5;
+            --line: #d8e3e6;
+            --paper: #ffffff;
+            --canvas: #e7edef;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            background: var(--canvas);
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--canvas);
+            font-family: "Aptos", "Segoe UI", sans-serif;
+            font-size: 10.25pt;
+            line-height: 1.42;
+            text-rendering: optimizeLegibility;
+        }
+
+        p,
+        li,
+        td {
+            text-align: left;
+        }
+
+        a {
+            color: inherit;
+            text-decoration-color: rgba(0, 127, 134, .45);
+            text-underline-offset: 2px;
+        }
+
+        a:hover {
+            color: var(--accent-dark);
+        }
+
+        .page {
+            width: min(210mm, calc(100% - 32px));
+            min-height: 85vh;
+            margin: 28px auto;
+            padding: 17mm 17mm 14mm;
+            background: var(--paper);
+            box-shadow: 0 12px 36px rgba(23, 50, 77, .13);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .masthead {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            align-items: end;
+            padding-bottom: 17px;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .name {
+            margin: 0;
+            color: var(--ink);
+            font-size: 29pt;
+            font-weight: 750;
+            letter-spacing: .045em;
+            line-height: .98;
+        }
+
+        .role {
+            margin: 9px 0 0;
+            color: var(--accent);
+            font-size: 10.5pt;
+            font-weight: 750;
+            letter-spacing: .13em;
+            line-height: 1.2;
+        }
+
+        .contact {
+            margin: 0;
+            color: var(--muted);
+            font-size: 9pt;
+            line-height: 1.65;
+            text-align: right;
+        }
+
+        .contact strong {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .contact a {
+            white-space: nowrap;
+        }
+
+        .profile {
+            margin: 18px 0 18px;
+            color: var(--ink);
+            font-size: 10pt;
+            line-height: 1.52;
+            max-width: 96%;
+            text-align: left;
+        }
+
+        .section {
+            margin-top: 19px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            margin: 0 0 9px;
+            color: var(--accent);
+            font-size: 9.5pt;
+            font-weight: 800;
+            letter-spacing: .16em;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: var(--line);
+        }
+
+        .expertise {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 9px;
+        }
+
+        .expertise-card {
+            padding: 12px 13px;
+            background: var(--wash);
+            border-top: 2px solid rgba(0, 127, 134, .5);
+        }
+
+        .expertise-card p {
+            margin: 0;
+            color: var(--ink);
+            font-size: 9pt;
+            font-weight: 550;
+            line-height: 1.5;
+        }
+
+        .role-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 18px;
+            margin-top: 13px;
+        }
+
+        .role-row h3 {
+            margin: 0;
+            font-size: 11pt;
+            line-height: 1.2;
+        }
+
+        .role-row .meta {
+            color: var(--muted);
+            font-size: 9pt;
+        }
+
+        .dates {
+            flex: 0 0 auto;
+            color: var(--accent);
+            font-size: 9pt;
+            font-weight: 750;
+            white-space: nowrap;
+        }
+
+        ul {
+            margin: 7px 0 0 18px;
+            padding: 0;
+        }
+
+        li {
+            margin: 0 0 4px;
+            padding-left: 3px;
+            color: var(--muted);
+        }
+
+        li::marker {
+            color: var(--accent);
+        }
+
+        .education {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .education td {
+            padding: 7px 0;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        .education td:last-child {
+            width: 92px;
+            color: var(--accent);
+            font-size: 9pt;
+            font-weight: 750;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .degree {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .school,
+        .detail {
+            color: var(--muted);
+            font-size: 9pt;
+        }
+
+        .page-break {
+            break-before: page;
+        }
+
+        .publication-intro {
+            margin: 0 0 12px;
+            color: var(--muted);
+        }
+
+        .publication {
+            margin: 0 0 11px;
+            padding-left: 17px;
+            position: relative;
+        }
+
+        .publication::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: .62em;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .publication a {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .publication .journal {
+            color: var(--muted);
+            font-size: 9pt;
+        }
+
+        .initiative {
+            margin: 0 0 10px;
+            color: var(--muted);
+        }
+
+        .initiative strong {
+            color: var(--ink);
+        }
+
+        .technical {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .technical-block {
+            padding: 12px 14px;
+            background: var(--wash);
+        }
+
+        .technical-block h3 {
+            margin: 0 0 7px;
+            color: var(--accent-dark);
+            font-size: 8.5pt;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .technical-block p {
+            margin: 0;
+            color: var(--ink);
+            font-size: 9pt;
+            line-height: 1.55;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding-top: 9px;
+            border-top: 1px solid var(--line);
+            color: var(--accent);
+            font-size: 7.8pt;
+            font-weight: 750;
+            letter-spacing: .09em;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                width: 100%;
+                min-height: 0;
+                margin: 0;
+                padding: 28px 22px;
+                box-shadow: none;
+            }
+
+            .masthead {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .contact {
+                text-align: left;
+            }
+
+            .profile {
+                max-width: none;
+            }
+
+            .expertise,
+            .technical {
+                grid-template-columns: 1fr;
+            }
+
+            .role-row {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .dates {
+                order: -1;
+            }
+
+            .page-break {
+                margin-top: 30px;
+                border-top: 1px solid var(--line);
+                padding-top: 30px;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 8mm 9mm;
+            }
+
+            html,
+            body {
+                background: #fff;
+            }
+
+            .page {
+                width: 100%;
+                min-height: calc(297mm - 16mm);
+                margin: 0;
+                padding: 10mm 12mm 8mm;
+                box-shadow: none;
+            }
+
+            .page-break {
+                break-before: page;
+            }
+
+            .section {
+                margin-top: 14px;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Uğur Arıkan</h1>
-
-    <p class="subheader">Operations Research and Data Scientist / Practitioner</p>
-
-    <section class="header-card">
-        <img src="https://media.licdn.com/dms/image/v2/D4E03AQFoCir4CIWDtA/profile-displayphoto-shrink_200_200/B4EZbOprbCGQAY-/0/1747223755214?e=1754524800&v=beta&t=7_pWaNOyFU6svAPtMc3Uhym04VoWBVIwlz6nMh914-Y"
-            alt="photo" sizes="">
-        <div class="header-contact-wide">
-            <div class="two-columns">
-                <div class="theme-colors">
-                    <!-- <div style="background-color: #004d00;">&nbsp;</div>
-                    <div style="background-color: #202060;">&nbsp;</div> -->
-                </div>
-                <div class="dark-mode">
-                    <div class="sun"></div>
-                    <div class="moon"></div>
-                </div>
-            </div>
-            <div class="two-columns">
-                <div>
-                    <p>Bonn, Germany | +491713015770</p>
-                    <p><a target="_blank" href="mailto:uarikan@outlook.com">uarikan@outlook.com</a></p>
-                    <p><a target="_blank"
-                            href="https://www.linkedin.com/in/uarikan/">https://www.linkedin.com/in/uarikan/</a>
-                    </p>
-                    <a target="_blank"
-                        href="https://orcid.org/0000-0002-6195-3169">https://orcid.org/0000-0002-6195-3169</a>
-                </div>
-                <div>
-                    <p class="coding"><a target="_blank" href="https://github.com/orxfun">https://github.com/orxfun</a>
-                    </p>
-                    <p class="coding"><a target="_blank"
-                            href="https://crates.io/users/orxfun">https://crates.io/users/orxfun</a></p>
-                    <p class="download">
-                        <a target="_blank" href="Ugur-Arikan-Resume.pdf">Ugur-Arikan-Resume.pdf</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="header-contact-narrow">
+    <main class="page">
+        <header class="masthead">
             <div>
-                <div class="header-contact-narrow-symbols">
-                    <span><a href="tel:+491713015770">☎</a></span>
-                    <span><a target="_blank" href="mailto:uarikan@outlook.com">✉</a></span>
-                    <span><a target="_blank" href="https://www.linkedin.com/in/uarikan/"><img
-                                src="https://content.linkedin.com/content/dam/me/business/en-us/amp/xbu/linkedin-revised-brand-guidelines/in-logo/fg/brand-inlogo-hero-fg-dsk-v01.png.original.png"
-                                alt="linkedin" /></a></span>
-                    <span><a target="_blank" href="https://orcid.org/0000-0002-6195-3169"><img
-                                src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" alt="orcid" /></a></span>
-                    <span><a target="_blank" href="https://github.com/orxfun"><img
-                                src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
-                                alt="github" /></a></span>
-                    <span><a target="_blank" href="https://crates.io/users/orxfun"><img
-                                src="https://crates.io/assets/cargo.png" alt="crates.io" /></a></span>
-                    <span>
-                        <a target="_blank" href="Ugur-Arikan-Resume.pdf"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/267px-PDF_file_icon.svg.png"
-                                alt="as pdf" /></a>
-                    </span>
-                    <span class="dark-mode">
-                        <div class="sun"></div>
-                        <div class="moon"></div>
-                    </span>
-                </div>
+                <h1 class="name">UĞUR ARIKAN</h1>
+                <p class="role">PRINCIPAL OPERATIONS RESEARCH SCIENTIST</p>
             </div>
-        </div>
-    </section>
+            <p class="contact">
+                <strong>Bonn, Germany</strong><br>
+                +49 171 3015770<br>
+                <a href="mailto:orx.ugur.arikan@gmail.com" target="_blank"
+                    rel="noopener noreferrer">orx.ugur.arikan@gmail.com</a><br>
+                <a href="https://linkedin.com/in/uarikan" target="_blank"
+                    rel="noopener noreferrer">linkedin.com/in/uarikan</a><br>
+                <a href="https://github.com/orxfun" target="_blank" rel="noopener noreferrer">github.com/orxfun</a>
+            </p>
+        </header>
 
-    <section>
-        <p class="profile">
-            Passionate and experienced in applying operations research, optimization and artificial intelligence in
-            real life problems. Keen on all stages of problem solving, from understanding and defining the problem to
-            implementing the solution and evaluation. Enthusiastic in algorithms and programming languages.
-        </p>
-    </section>
+        <p class="profile">Operations research and data science leader with 12+ years of experience turning
+            mathematical optimization, network science, and machine learning into production decision-support systems.
+            I lead complex planning projects from problem formulation and algorithm design through deployment and
+            stakeholder adoption across transportation, aviation, and network operations. I bring particular expertise
+            in Rust for high-performance and optimization software, alongside broader experience designing production
+            systems, APIs, visualizations, and data workflows in Python, C#, TypeScript/React, and SQL.</p>
 
-    <section>
-        <h2>Work Experience</h2>
-
-        <div class="dated-card">
-            <div class="dated-card-header">
-                <div class="position">
-                    <span>Principal Operations Research (OR) / Data Scientist</span>
-                    <span>DHL Data & Analytics</span>
-                </div>
-                <div>Jul, 2023 - present</div>
+        <section class="section">
+            <h2 class="section-title">Core areas</h2>
+            <div class="expertise">
+                <article class="expertise-card">
+                    <p>Operations research<br>Optimization and modeling<br>Decision-support systems</p>
+                </article>
+                <article class="expertise-card">
+                    <p>Network planning<br>Routing and capacity<br>Applied data science</p>
+                </article>
+                <article class="expertise-card">
+                    <p>Software engineering<br>Rust and parallel computation<br>Open-source contribution</p>
+                </article>
             </div>
+        </section>
 
-            <div class="dated-card-content">
-                <p>I have been working on and driving various projects such as:</p>
-                <ul>
-                    <li>
-                        Human-centric last-mile delivery with route generation algorithms utilizing OR, statistics and
-                        Machine Learning to combine valuable tacit knowledge of experienced couriers with optimization
-                        algorithms. This project has been selected as a finalist for Wagner Prize in 2022.
-                    </li>
-                    <li>
-                        Revenue maximization project for air capacity sales with large scale global network models.
-                    </li>
-                    <li>
-                        Scenario generation, optimization and analysis tool to support global air network design
-                        decisions.
-                    </li>
-                    <li>
-                        Container loading algorithms for trucks and air cargo with the objectives such as to minimize
-                        cost, increase utilization and minimize delays.
-                    </li>
-                    <li>
-                        Chatbot applications allowing to analyze solutions of optimization problems and enabling
-                        interactions with decision support tools to iterate over scenarios to answer complex business
-                        questions.
-                    </li>
-                    <li>
-                        Asynchronous optimization api for long running optimization problems to make it convenient and
-                        efficient to build, deploy and test optimization services for tactical and strategical decision
-                        making projects.
-                    </li>
-                    <li>
-                        Generic and efficient multi commodity network flow solver with flexible side constraints and
-                        adaptable solution approaches to support various network design projects.
-                    </li>
-                    <li>
-                        Generic and efficient traveling salesperson problem solver with flexible side constraints such
-                        as time windows or LIFO to be used as the core solver in various vehicle routing problems.
-                    </li>
-                </ul>
+        <section class="section">
+            <h2 class="section-title">Professional experience</h2>
+            <div class="role-row">
+                <h3>Principal Operations Research &amp; Data Scientist <span class="meta">| DHL Data &amp; AI | Bonn,
+                        Germany</span></h3><span class="dates">2018 - Present</span>
             </div>
-
-        </div>
-
-        <div class="dated-card">
-            <div class="dated-card-header">
-                <div class="position">
-                    <span>Senior Operations Research / Data Scientist</span>
-                    <span>Data Analytics, Center of Excellence, DPDHL</span>
-                </div>
-                <div>Jul, 2020 - Jun, 2023</div>
-            </div>
-        </div>
-
-        <div class="dated-card">
-            <div class="dated-card-header">
-                <div class="position">
-                    <span>Operations Research / Data Scientist</span>
-                    <span>Data Analytics, Center of Excellence, DPDHL</span>
-                </div>
-                <div>Sep, 2018 - Jun, 2020</div>
-            </div>
-        </div>
-
-        <div class="dated-card">
-            <div class="dated-card-header">
-                <div class="position">
-                    <span>Postdoctoral Research Fellow</span>
-                    <span>Engineering Systems and Design, Singapore University of Technology and Design</span>
-                </div>
-                <div>Nov, 2014 - Aug, 2018</div>
-            </div>
-            <div class="dated-card-content">
-                <ul>
-                    <li>
-                        I had the opportunity to work closely with my supervisors <a target="_blank"
-                            href="https://people.sutd.edu.sg/~natarajan_karthik/">Prof. Karthik Natarajan</a>
-                        and <a target="_blank"
-                            href="https://www.southampton.ac.uk/people/5y9p9p/professor-selin-ahipasaoglu">Prof.
-                            Selin Damla Ahipaşaoğlu</a>.
-                        Our research focused on discrete choice models and stochastic traffic equilibrium. We
-                        worked on to make use of robust optimization techniques to define and model the distributionally
-                        robust traffic equilibrium as a new convex optimization formulation which is provably
-                        efficiently solvable and has the flexibility of allowing for general marginal distributions.
-                        During my postdoc, I participated the MIT Transportation Networks and Smart Mobility:
-                        Methods and Solutions program lead by Prof. M. Ben-Akiva.
-                    </li>
-                    <li>
-                        I have been a lecturer of the Capstone course for four years where I taught and supervised
-                        real-life projects of senior students. I was very keen on this task particularly due to the
-                        multidisciplinary nature of the projects and collaboration both with students and industry.
-                    </li>
-                    <li>
-                        I feel extremely lucky for the opportunity to work with <a target="_blank"
-                            href="https://www.sutd.edu.sg/profile/peter-jackson/">Prof. Peter Jackson</a> on
-                        <a target="_blank" href="https://mbse-capella.org/arcadia.html">Arcadia with Capella</a>, a
-                        modelling methodology and tool for complex systems. Systems Design is always a favorite
-                        topic for me and it was a great experience and pleasure to work with Prof. Jackson. You may find
-                        <a target="_blank"
-                            href="https://gettingdesignright.com/GDR-Educate/Capella_Tutorial_v6_0/index.html">here</a>
-                        the tutorial we created.
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="dated-card">
-            <div class="dated-card-header">
-                <div class="position">
-                    <span>Research Assistant</span>
-                    <span>Department of Industrial Engineering, Middle East Technical University</span>
-                </div>
-                <div>Dec, 2010 - Oct, 2014</div>
-            </div>
-            <div class="dated-card-content">
-                <ul>
-                    <li>
-                        I had been a teaching assistant for various courses such as Operations Research, Production &
-                        Service Information Systems, Stochastic Models, Revenue Management, Systems and Organizations.
-                    </li>
-                    <li>
-                        I was a part of the Systems Design committee with supervising and organizational tasks for the
-                        real-life systems design projects of the senior students.
-                    </li>
-                    <li>
-                        I took place in industrial OR projects such as the assembly line design project for car
-                        manufacturer <a target="_blank" href="https://www.tofas.com.tr/en">Tofaş</a> that simultaneously
-                        optimizes make-or-buy / outsourcing decisions of sub-components.
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="dated-card">
-            <div class="dated-card-header">
-                <div class="position">
-                    <span>Project Assistant</span>
-                    <span>Computer Center, Middle East Technical University</span>
-                </div>
-                <div>Oct, 2006 - Dec, 2010</div>
-            </div>
-            <div class="dated-card-content">
-                <p>
-                    During my graduate studies, I had taken place in various software projects at my university mostly
-                    focusing on process optimization for in-campus processes.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <section>
-        <h2>Academic Training</h2>
-
-        <div class="dated-card">
-            <div class="dated-card-header">
-                <div class="position">
-                    <span>Doctor of Philosophy</span>
-                    <span>Industrial Engineering Department, Middle East Technical University</span>
-                </div>
-                <div>2009 - 2014</div>
-            </div>
-
-            <div class="dated-card-content">
-                <p><i>Title of Dissertation:</i> Airline Disruption Management</p>
-                <p>
-                    <i>Supervisors:</i> <a target="_blank" href="https://ie.metu.edu.tr/en/sinan-gurel-prof-dr">Prof.
-                        Sinan Gürel</a> and <a target="_blank" href="http://akturk.bilkent.edu.tr/">Prof. M. Selim
-                        Aktürk</a>
-                </p>
-                <p>
-                    Air transportation has been a very important sector due to its operational and economical aspects.
-                    In this growing industry, airlines try to analyze a very large and complex network in order to
-                    plan their operations. However, operations cannot be operated as scheduled due to irregularities in
-                    operations, namely disruptions. Original schedules of aircraft, crew members and passengers become
-                    infeasible; and airlines try to recover their schedules with minimum disruption and recovery costs.
-                    Moreover, due to the dynamic nature of the operations, operation controllers need to take action
-                    in real time; which makes the rescheduling efforts more challenging.
-                    <span class="btnmore">more</span>
-                    <span class="more">
-                        The traditional approach is to recover the schedules of aircraft, crew members and passengers
-                        sequentially. The reports show that the sequential approach results in high recovery costs and
-                        passenger inconvenience. In the first part of our study, we integrate passenger recovery and
-                        cruise
-                        speed control with aircraft rescheduling. A special emphasis is placed on passenger recovery. In
-                        our
-                        experiments, we observed that integration of cruise speed control option helps mitigate delays
-                        and
-                        create new swap opportunities, which is one of the most common recovery actions in practical
-                        disruption management. The problem is initially formulated as a mixed integer nonlinear
-                        programming
-                        (MINLP) model. We reformulate the problem
-                        as a conic quadratic mixed integer programming (CQMIP) problem. We were able to solve about 93%
-                        of
-                        the instances of a large airline network to optimality within 60 seconds. In the second part, we
-                        propose a new general network representation of the problem that can integrate any entity that
-                        is
-                        transported through the flight network of the airline. We show that the proposed representation
-                        is
-                        more compact than the traditional time-space network and flight string representations. The
-                        flexibility of the representation allows to integrate all possible recovery actions together
-                        with
-                        the cruise speed control which is studied by a few authors only. We investigated and created
-                        disruption scenarios with varying severities using the real data of a major airline company.
-                        Moreover, we propose new realistic passenger delay cost formulations. Finally, we propose a
-                        CQMIP
-                        formulation of the integrated airline recovery problem using the proposed representation.
-                        Proposed
-                        approach was able to find the best recovery actions of a major U.S. airline within reasonable
-                        solution times. In the final part, using the flexibility of the proposed representation, we
-                        propose
-                        a heuristic approach to provide fast and good solutions to very large airline networks. The
-                        heuristic utilizes the advantages of rescheduling and relies on the fact that the original
-                        schedules
-                        are optimal provided that there are no disruptions. The algorithm uses the interdependencies
-                        among
-                        the recovery actions defined by the proposed networks to quickly reduce the problem size and
-                        find a
-                        subset of eligible recovery actions. The heuristic aims to find the best reduced feasible region
-                        that provides a solution within the predetermined time limit. For large instances with severe
-                        disruptions that are optimized within around two hours, proposed approach provides solutions
-                        with
-                        about 4.69% more costs within five minutes.
-                    </span>
-                    <span class="btnless">less</span>
-                </p>
-            </div>
-
-        </div>
-
-        <div class="dated-card">
-            <div class="dated-card-header">
-                <div class="position">
-                    <span>Master of Science</span>
-                    <span>Industrial Engineering Department, Middle East Technical University</span>
-                </div>
-                <div>2006 - 2009</div>
-            </div>
-            <div class="dated-card-content">
-                <p><i>Title of Dissertation:</i> Two-Sided Assembly Line Balancing: Models and Heuristics</p>
-                <p>
-                    <i>Supervisors:</i> <a target="_blank" href="https://ie.metu.edu.tr/en/omer-kirca-prof-dr">Prof.
-                        Ömer Kırca</a>
-                </p>
-                <p>
-                    A two-sided assembly line is a special type of assembly lines which is mainly used in production
-                    of large products such as trucks and buses. Two-sided assembly line balancing problem (TSALBP)
-                    is relatively a recent type of assembly line balancing problems. In addition to common constraints
-                    of assembly lines, a subset of the tasks in TSALBP also have side constraints.
-
-                    <span class="btnmore">more</span>
-
-                    <span class="more">
-                        In the first part of
-                        our study, we develop a mixed-integer programming (MIP) formulation which uses integer station
-                        assignment variables instead of binary variables as used in most proposed formulations in the
-                        literature.
-                        We were able to provide the very first optimal solutions provided by an exact approach
-                        to some benchmark problems. Due to the encouraging results of the mathematical formulation, we
-                        propose a rolling-horizon heuristic integrated with the formulation in the second part. The
-                        heuristic
-                        proceeds on the assembly line solving smaller MIP problems using parameters to control the size
-                        of
-                        the subproblems and to decide on accepting or rejecting the solutions. The heuristic managed to
-                        optimize
-                        all benchmark problems within 10800 seconds (a commonly used time limit on the benchmark
-                        problems). In the third part, we proposed a second heuristic approach to provide fast solutions.
-                        We
-                        have been inspired by the multiple-rule heuristic of Boctor (1995). The proposed heuristic is an
-                        enhanced version in the sense that it uses a greater number of logical rules and their
-                        combinations;
-                        and the rules are designed to handle side constraints. The polynomial time heuristic was able to
-                        achieve optimal solutions to the largest data sets within 30 seconds.
-                    </span>
-                    <span class="btnless">less</span>
-                </p>
-            </div>
-        </div>
-
-        <div class="dated-card">
-            <div class="dated-card-header">
-                <div class="position">
-                    <span>Bachelor of Science</span>
-                    <span>Industrial Engineering Department, Middle East Technical University</span>
-                </div>
-                <div>2002 - 2006</div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Interests</h2>
-        <div class="two-columns">
             <ul>
-                <li>Optimization</li>
-                <li>Graph Theory & Network Planning</li>
-                <li>Algorithms & Heuristic Search</li>
-                <li>Artificial Intelligence</li>
-            </ul>
-            <ul>
-                <li>Systems Thinking</li>
-                <li>System Simulation</li>
-                <li>Transportation Systems & Logistics</li>
-                <li>Discrete Choice Models</li>
-            </ul>
-        </div>
-
-        <div class="two-columns">
-            <ul>
-                <li style="list-style: none;"><strong>programming languages</strong></li>
-                <li>experienced: Rust 🦀, C#, React, Typescript</li>
-                <li>fluent: Python, C++, Go</li>
-                <li>investigating: Zig, F#</li>
+                <li>Lead and contribute to optimization projects across air capacity planning, network design, linehaul
+                    planning, freight consolidation, regional transport optimization, and last-mile routing, from
+                    problem
+                    formulation through deployment and operational use.</li>
+                <li>Develop decision-support tools for air-capacity allocation and network planning, supporting
+                    strategic and tactical decisions in complex transportation systems.</li>
+                <li>Design optimization models for network structure, facility location, routing, freight consolidation,
+                    and container loading, combining exact methods, heuristics, and scenario analysis.</li>
+                <li>Architect and standardize reusable production engines and services for network optimization,
+                    routing,
+                    and loading, improving consistency, maintainability, and reuse across analytical applications.</li>
+                <li>Work closely with business, network, and technical stakeholders to translate planning questions into
+                    tractable mathematical models and usable decision-support applications.</li>
+                <li>Deliver cloud-based optimization solutions to support broader deployment, scalability, and
+                    sustainable
+                    operational use across teams and workflows.</li>
             </ul>
 
+            <div class="role-row">
+                <h3>Postdoctoral Researcher <span class="meta">| Singapore University of Technology and Design |
+                        Singapore</span></h3><span class="dates">2014 - 2018</span>
+            </div>
             <ul>
-                <li style="list-style: none;"><strong>hobbies</strong></li>
-                <li>football ⚽ basketball 🏀</li>
-                <li>hiking 🥾 biking 🚲</li>
-                <li>travelling</li>
+                <li>Conducted research in transportation systems, utility theory, discrete choice models, and robust
+                    optimization; supervised student projects and contributed to multidisciplinary design teams.</li>
             </ul>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <h2>Publications</h2>
-        <a class="publication" target="_blank" href="https://pubsonline.informs.org/doi/10.1287/inte.2023.0031">
-            U. Arıkan, T. Kranz, B. C. Sal, S. Schmitt, J. Witt. Human-Centric Parcel Delivery at Deutsche Post with
-            Operations Research and Machine Learning. INFORMS Journal on Applied Analytics, 2023. doi:
-            10.1287/inte.2023.0031.
-        </a>
-        <a class="publication" target="_blank" href="https://pubsonline.informs.org/doi/abs/10.1287/trsc.2019.0910">
-            S. D. Ahipaşaoğlu, U. Arıkan, K. Natarajan. Distributionally robust Markovian traffic equilibrium.
-            Transportation Science, 2019. doi: 10.1287/trsc.2019.0910.
-        </a>
-        <a class="publication" target="_blank" href="https://pubsonline.informs.org/doi/abs/10.1287/trsc.2016.0716">
-            U. Arıkan, S. Gürel, M. S. Aktürk. Flight network-based approach for integrated airline
-            recovery with cruise speed control. Transportation Science, 2017. doi: 10.1287/trsc.2016.0716.
-        </a>
-        <a class="publication" target="_blank"
-            href="https://www.sciencedirect.com/science/article/abs/pii/S0191261515301351">
-            S. D. Ahipaşaoğlu, U. Arıkan, K. Natarajan. On the flexibility of using marginal distribution models in
-            traffic equilibrium. Transportation Research Part B: Methodological, 91:130-158, 2016.
-        </a>
-        <a class="publication" target="_blank" href="https://link.springer.com/article/10.1007/s10479-013-1424-2">
-            U. Arıkan, S. Gürel, M. S. Aktürk. Integrated aircraft and passenger recovery with cruise
-            time controllability. Annals of Operations Research, 236(2):295-317, 2016.
-        </a>
-    </section>
+        <footer class="footer">UĞUR ARIKAN &nbsp;•&nbsp; OPERATIONS RESEARCH | OPTIMIZATION | SOFTWARE ENGINEERING
+        </footer>
+    </main>
+
+    <main class="page page-break">
+        <section class="section" style="margin-top: 0">
+            <h2 class="section-title">Software engineering &amp; open source</h2>
+            <ul>
+                <li>Extend this engineering work through open-source contributions in optimization, numerical methods,
+                    and data-driven planning, with attention to documentation, testing, benchmarking, and reusable
+                    abstractions. The <a href="https://github.com/orxfun/orx-parallel" target="_blank"
+                        rel="noopener noreferrer">orx-parallel</a> repository and broader <a
+                        href="https://github.com/orxfun" target="_blank" rel="noopener noreferrer">orx-* ecosystem</a>
+                    provide public examples, with crates published via <a href="https://crates.io/users/orxfun"
+                        target="_blank" rel="noopener noreferrer">crates.io</a>.
+                </li>
+                <li>Led the adoption of Rust for optimization-focused software within DHL Data &amp; AI, establishing a
+                    production-oriented approach that enabled live Rust-based solutions for operational decision
+                    support.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <table class="education">
+                <tr>
+                    <td><span class="degree">PhD, Industrial Engineering &amp; Operations Research</span> <span
+                            class="school">|
+                            Middle East Technical University</span><br><span class="detail">Dissertation: Airline
+                            Disruption
+                            Management</span></td>
+                    <td>2009 - 2014</td>
+                </tr>
+                <tr>
+                    <td><span class="degree">MSc, Industrial Engineering &amp; Operations Research</span> <span
+                            class="school">|
+                            Middle East Technical University</span><br><span class="detail">Dissertation: Two-Sided
+                            Assembly Line
+                            Balancing: Models and Heuristics</span></td>
+                    <td>2006 - 2009</td>
+                </tr>
+                <tr>
+                    <td><span class="degree">BSc, Industrial Engineering &amp; Operations Research</span> <span
+                            class="school">|
+                            Middle East Technical University, Ankara, Turkey</span></td>
+                    <td>2002 - 2006</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Further training</h2>
+            <table class="education">
+                <tr>
+                    <td><span class="degree">Modeling and Simulation of Transportation Networks</span> <span
+                            class="school">|
+                            Massachusetts Institute of Technology</span></td>
+                    <td>Jul 2015</td>
+                </tr>
+                <tr>
+                    <td><span class="degree">Operations Research Peripatetic Postgraduate Program</span> <span
+                            class="school">|
+                            JKU Linz</span></td>
+                    <td>Jul 2013</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Research &amp; publications</h2>
+            <p class="publication-intro">Research and peer-reviewed publications in airline disruption management,
+                network-based recovery, traffic equilibrium, and applied optimization in logistics and transportation.
+            </p>
+            <p class="publication"><a href="https://pubsonline.informs.org/doi/10.1287/trsc.2016.0716" target="_blank"
+                    rel="noopener noreferrer">Flight Network-Based
+                    Approach for Integrated Airline Recovery with Cruise Speed Control</a><br><span
+                    class="journal">INFORMS
+                    Transportation Science</span></p>
+            <p class="publication"><a href="https://doi.org/10.1007/s10479-013-1424-2" target="_blank"
+                    rel="noopener noreferrer">Integrated Aircraft and Passenger
+                    Recovery with Cruise Time Controllability</a><br><span class="journal">Annals of Operations
+                    Research</span>
+            </p>
+            <p class="publication"><a href="https://doi.org/10.1016/j.trb.2016.05.002" target="_blank"
+                    rel="noopener noreferrer">On the flexibility of using marginal
+                    distribution choice models in traffic equilibrium</a><br><span class="journal">Transportation
+                    Research Part B:
+                    Methodological</span></p>
+            <p class="publication"><a href="https://pubsonline.informs.org/doi/10.1287/trsc.2019.0910" target="_blank"
+                    rel="noopener noreferrer">Distributionally Robust
+                    Markovian Traffic Equilibrium</a><br><span class="journal">INFORMS Transportation Science</span></p>
+            <p class="publication"><a href="https://pubsonline.informs.org/doi/10.1287/inte.2023.0031" target="_blank"
+                    rel="noopener noreferrer">Human-Centric Parcel
+                    Delivery with Operations Research and Machine Learning</a><br><span class="journal">INFORMS
+                    Interfaces</span></p>
+        </section>
+
+        <footer class="footer">UĞUR ARIKAN &nbsp;•&nbsp; OPERATIONS RESEARCH | OPTIMIZATION | SOFTWARE ENGINEERING
+        </footer>
+    </main>
+
+    <main class="page page-break">
+        <section class="section" style="margin-top: 0">
+            <h2 class="section-title">Selected talk</h2>
+            <p class="publication-intro">A practitioner perspective on applying Rust design principles to optimization
+                software.</p>
+            <p class="publication"><a
+                    href="https://orxfun.github.io/talk-composing-zero-cost-abstractions-in-route-optimization/"
+                    target="_blank" rel="noopener noreferrer">Composing Zero-Cost Abstractions in Route
+                    Optimization</a><br>
+                <span class="journal">Talk on the intersection of Operations Research and Rust</span>
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Selected technical capabilities</h2>
+            <div class="technical">
+                <article class="technical-block">
+                    <h3>Optimization</h3>
+                    <p>Mixed-integer optimization<br>Network optimization<br>Routing and facility
+                        location<br>Heuristics, decomposition, and local search<br>Scenario analysis and decision
+                        support</p>
+                </article>
+                <article class="technical-block">
+                    <h3>Engineering</h3>
+                    <p>Rust, Python, C#, TypeScript/React, SQL<br>Parallel computation and concurrency<br>Production
+                        service design<br>Cloud deployment and integration<br>Profiling, benchmarking, and reusable
+                        library design</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <p>English (fluent) &nbsp;|&nbsp; German (intermediate) &nbsp;|&nbsp; Turkish (native)</p>
+        </section>
+
+        <footer class="footer">UĞUR ARIKAN &nbsp;•&nbsp; OPERATIONS RESEARCH | OPTIMIZATION | SOFTWARE ENGINEERING
+        </footer>
+    </main>
 </body>
 
 </html>
